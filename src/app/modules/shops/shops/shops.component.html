@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>{{shop.publicName}}</h1>
+  <div class="row">
+    <ng-container *ngFor="let product of shop.products">
+      <app-food-card [product]="product" class="col-md-4"></app-food-card>
+    </ng-container>
+  </div>
+</div>
+
