@@ -17,6 +17,10 @@ export class CartService {
     return this.subject.asObservable();
   }
 
+  getCurrentCart(): Cart {
+    return {...this.cart};
+  }
+
   addProduct(product: CartProduct): void {
     const savedProduct = this.cart.products.find(p => p.name === product.name);
 
@@ -49,6 +53,11 @@ export class CartService {
           .filter(p => p.name !== product.name);
       }
     }
+    this.reportChangesInCartProducts();
+  }
+
+  cleanCart(): void {
+    this.cart = this.initCart();
     this.reportChangesInCartProducts();
   }
 
