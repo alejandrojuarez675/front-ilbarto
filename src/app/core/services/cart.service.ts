@@ -33,7 +33,7 @@ export class CartService {
     this.reportChangesInCartProducts();
   }
 
-  removeProducts(product: any, quantity?: number): void {
+  removeProducts(product: CartProduct, quantity?: number): void {
     const _quantity = quantity || 1;
 
     const savedProduct = this.cart.products.find(p => p.name === product.name);
