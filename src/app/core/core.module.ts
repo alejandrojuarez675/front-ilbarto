@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ShopService } from './http/shop.service';
+import { CartService } from './services/cart.service';
 
 
 
@@ -18,6 +20,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   exports: [
     HeaderComponent,
     FooterComponent,
+  ],
+  providers: [
+    ShopService,
+    CartService,
   ]
 })
 export class CoreModule { }
