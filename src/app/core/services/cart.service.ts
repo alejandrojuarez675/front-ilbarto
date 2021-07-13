@@ -72,6 +72,7 @@ export class CartService {
     const price = this.cart.products.map(x => x.price).reduce((a, b) => a + b, 0);
     this.cart.price = price;
 
+    console.log('cart', this.cart);
     this.subject.next(this.cart);
   }
 }
