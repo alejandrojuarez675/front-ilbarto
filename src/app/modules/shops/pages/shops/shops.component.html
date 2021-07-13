@@ -1,20 +1,21 @@
 <div class="container">
-  <h1>{{shop.publicName}}</h1>
-</div>
-<div class="row col-12">
-  <div class="col-xl-2">
-    <div class="card p-2">
-      <h6>Secciones</h6>
+  <div>
+    <h1>{{shop.publicName}}</h1>
+  </div>
+  <div class="row col-12">
+    <div class="col-xl-2">
+      <div class="card p-2 mb-3">
+        <h6>Secciones</h6>
+      </div>
     </div>
-  </div>
-  <div class="col-md-9 col-xl-8 mb-5">
-    <app-sections [products]="shop.products"></app-sections>
-  </div>
-  <div class="d-none d-md-block col-md-3 col-xl-2">
-    <div class="card p-2 shops-page__cart-view--desktop">
-      <app-cart-view [cart]="cart"></app-cart-view>
+    <div class="col-md-9 col-xl-8 mb-5">
+      <app-sections [products]="shop.products"></app-sections>
     </div>
+    <div class="d-none d-md-block col-md-3 col-xl-2">
+      <div class="card p-2 shops-page__cart-view--desktop">
+        <app-cart-view [cart]="cart"></app-cart-view>
+      </div>
+    </div>
+    <app-button-cart-view-mobile *ngIf="cart.products.length > 0" [cart]="cart"></app-button-cart-view-mobile>
   </div>
-  <app-button-cart-view-mobile *ngIf="cart.products.length > 0" [cart]="cart"></app-button-cart-view-mobile>
 </div>
-
