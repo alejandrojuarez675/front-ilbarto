@@ -1,0 +1,9 @@
+<h4>Su pedido</h4>
+<ul>
+  <li *ngFor="let product of cart.products">
+    <small>{{product.quantity}}x</small>
+    &nbsp;{{ product.name }}&nbsp;
+    <small>{{(product.price/product.quantity) | currency}}</small>
+  </li>
+</ul>
+<h5>Total: {{cart.price | currency}}</h5>

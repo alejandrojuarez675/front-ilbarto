@@ -11,3 +11,7 @@ export interface CartProduct {
   type: string;
   quantity: number;
 }
+
+export function emptyCart(): Cart {
+  return { products: [], price: 0 };
+}

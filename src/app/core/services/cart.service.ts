@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Cart, CartProduct } from 'src/app/shared/models/cart.model';
+import { Cart, CartProduct, emptyCart } from 'src/app/shared/models/cart.model';
 
 @Injectable()
 export class CartService {
 
   subject: Subject<Cart> = new Subject();
-  cart: Cart = this.initCart();
+  cart: Cart = emptyCart();
 
   constructor() {
-    this.initCart();
+    emptyCart();
     this.reportChangesInCartProducts();
   }
 
@@ -57,15 +57,8 @@ export class CartService {
   }
 
   cleanCart(): void {
-    this.cart = this.initCart();
+    this.cart = emptyCart();
     this.reportChangesInCartProducts();
-  }
-
-  private initCart(): Cart {
-    return {
-      products: [],
-      price: 0
-    };
   }
 
   private reportChangesInCartProducts() {
