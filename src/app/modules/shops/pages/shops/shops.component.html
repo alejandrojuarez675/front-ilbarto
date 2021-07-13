@@ -15,8 +15,6 @@
       <app-cart-view [cart]="cart"></app-cart-view>
     </div>
   </div>
-  <div class="d-block d-md-none w-100 text-center shops-page__btn-cart-view">
-    <button class="btn btn-primary font-weight-bold">Ver mi Pedido {{cart.price | currency}}</button>
-  </div>
+  <app-button-cart-view-mobile *ngIf="cart.products.length > 0" [cart]="cart"></app-button-cart-view-mobile>
 </div>
 

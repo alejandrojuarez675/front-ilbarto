@@ -1,0 +1,13 @@
+<div class="d-block d-md-none w-100 text-center shops-page__btn-cart-view">
+  <button class="btn btn-primary font-weight-bold" (click)="open(myCartList)">Ver mi Pedido {{cart.price | currency}}</button>
+</div>
+
+<ng-template #myCartList let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Mi Pedido</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <app-cart-view [cart]="cart"></app-cart-view>
+</ng-template>

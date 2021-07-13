@@ -1,9 +1,12 @@
-<h4>Mi pedido</h4>
-<ul>
-  <li *ngFor="let product of cart.products">
-    <small>{{product.quantity}}x</small>
-    &nbsp;{{ product.name }}&nbsp;
-    <small>{{(product.price/product.quantity) | currency}}</small>
-  </li>
-</ul>
-<h5>Total: {{cart.price | currency}}</h5>
+<div class="p-2">
+  <h4 class="d-none d-md-block">Mi pedido</h4>
+  <p *ngIf="cart.products.length === 0">Aún no hay productos en el carro</p>
+  <ul>
+    <li *ngFor="let product of cart.products">
+      <small>{{product.quantity}}x</small>
+      &nbsp;{{ product.name }}&nbsp;
+      <small>{{(product.price/product.quantity) | currency}}</small>
+    </li>
+  </ul>
+  <h5>Total: {{cart.price | currency}}</h5>
+</div>
