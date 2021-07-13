@@ -1,10 +1,10 @@
 <div class="row">
-  <div *ngFor="let tag of tags" class="row py-2">
+  <div *ngFor="let tag of tags" class="row py-2 px-3">
     <div class="col-12 text-capitalize">
       <h3>{{tag}}</h3>
     </div>
     <ng-container *ngFor="let product of productsByType[tag]">
-      <app-food-card [product]="product" class="col-md-4"></app-food-card>
+      <app-food-card [product]="product" class="col-md-6 col-xl-4"></app-food-card>
     </ng-container>
   </div>
 </div>

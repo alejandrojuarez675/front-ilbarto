@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShopService } from 'src/app/core/http/shop.service';
+import { CartService } from 'src/app/core/services/cart.service';
+import { Cart, emptyCart } from 'src/app/shared/models/cart.model';
 
 @Component({
   selector: 'app-shops',
@@ -11,11 +13,13 @@ export class ShopsComponent implements OnInit {
 
   shopName = '';
   shop: any;
+  cart: Cart = emptyCart();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private shopService: ShopService,
+    private cartService: CartService,
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +34,10 @@ export class ShopsComponent implements OnInit {
         );
       }
     );
+
+    this.cartService.getCart().subscribe(
+      cart => this.cart = cart
+    )
   }
 
   redirectToNotFoundPage() {
