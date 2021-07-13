@@ -7,13 +7,16 @@
       <h6>Secciones</h6>
     </div>
   </div>
-  <div class="col-md-9 col-xl-8">
+  <div class="col-md-9 col-xl-8 mb-5">
     <app-sections [products]="shop.products"></app-sections>
   </div>
   <div class="d-none d-md-block col-md-3 col-xl-2">
     <div class="card p-2 shops-page__cart-view--desktop">
       <app-cart-view [cart]="cart"></app-cart-view>
     </div>
+  </div>
+  <div class="d-block d-md-none w-100 text-center shops-page__btn-cart-view">
+    <button class="btn btn-primary font-weight-bold">Ver mi Pedido {{cart.price | currency}}</button>
   </div>
 </div>
 
