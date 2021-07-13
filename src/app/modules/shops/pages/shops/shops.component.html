@@ -1,8 +1,11 @@
 <div class="container">
   <h1>{{shop.publicName}}</h1>
 </div>
-<div class="row">
-  <div class="d-none d-xl-block col-2">
+<div class="row col-12">
+  <div class="col-xl-2">
+    <div class="card p-2">
+      <h6>Secciones</h6>
+    </div>
   </div>
   <div class="col-md-9 col-xl-8">
     <app-sections [products]="shop.products"></app-sections>
