@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartViewComponent } from './components/cart-view/cart-view.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
 @NgModule({
   declarations: [
-    CartViewComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    CartViewComponent,
+    HeaderComponent,
   ]
 })
-export class SharedModule { }
+export class ShopsHeaderModule { }

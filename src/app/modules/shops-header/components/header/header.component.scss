@@ -1,0 +1,13 @@
+$header__height: 56px;
+
+.header__navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  height: $header__height;
+}
+
+.header__background {
+  height: $header__height;
+}

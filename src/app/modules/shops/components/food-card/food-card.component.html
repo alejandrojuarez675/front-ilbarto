@@ -1,0 +1,15 @@
+<div>
+  <div class="card m-2">
+    <img [src]="product.image" class="card-img-top" alt="Imagen no disponible">
+    <div class="card-body">
+      <h4 class="card-title">{{product.name}}</h4>
+      <h6>Precio: {{product.price | currency}}</h6>
+      <p class="card-text">{{product.description}}</p>
+      <div class="text-center">
+        <button class="btn btn-primary foot-card__btn" (click)="removeProduct()">-</button>
+        <span class="foot-card__quantity-text">&nbsp;{{quantity}}&nbsp;</span>
+        <button class="btn btn-primary foot-card__btn" (click)="addProduct()">+</button>
+      </div>
+    </div>
+  </div>
+</div>
