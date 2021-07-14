@@ -1,17 +1,31 @@
-<div class="p-2">
+<div class="p-2" style="min-width: 300px;">
   <h4 class="d-none d-md-block">Mi pedido</h4>
   <p *ngIf="cart.products.length === 0">Aún no hay productos en el carro</p>
-  <ul>
-    <li *ngFor="let product of cart.products">
+  <div class="row" *ngFor="let product of cart.products">
+    <div class="col-8">
       <small>{{product.quantity}}x</small>
       &nbsp;{{ product.name }}&nbsp;
+    </div>
+    <div class="col-4 text-right">
       <small>{{(product.price/product.quantity) | currency}}</small>
-    </li>
-    <li>
-      Envío {{cart.deliveryCost | currency}}
-    </li>
-  </ul>
-  <h5>Total: {{cart.price | currency}}</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      Envío
+    </div>
+    <div class="col-4 text-right">
+      <small>{{cart.deliveryCost | currency}}</small>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h5>Total:</h5>
+    </div>
+    <div class="col text-right">
+      <h5>{{cart.price | currency}}</h5>
+    </div>
+  </div>
 
   <button class="btn btn-primary w-100" (click)="sendCart()" [disabled]="cart.products.length === 0">Enviar</button>
 </div>
