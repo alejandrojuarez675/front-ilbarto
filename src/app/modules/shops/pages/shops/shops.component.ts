@@ -31,6 +31,8 @@ export class ShopsComponent implements OnInit {
         this.shopService.getInfoByName(param.name).subscribe(
           shop => {
             this.shop = shop;
+            this.cartService.cleanCart();
+            this.cartService.addDeliveryCost(this.shop.deliveryPrice);
           }, _err => this.redirectToNotFoundPage()
         );
       }

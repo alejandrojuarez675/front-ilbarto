@@ -1,5 +1,6 @@
 export interface Cart {
   products: CartProduct[];
+  deliveryCost: number;
   price: number;
 }
 
@@ -13,5 +14,5 @@ export interface CartProduct {
 }
 
 export function emptyCart(): Cart {
-  return { products: [], price: 0 };
+  return { products: [], deliveryCost: 0, price: 0 };
 }

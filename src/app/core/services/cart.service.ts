@@ -21,6 +21,11 @@ export class CartService {
     return {...this.cart};
   }
 
+  addDeliveryCost(cost: number): void {
+    this.cart.deliveryCost = cost;
+    this.reportChangesInCartProducts();
+  }
+
   addProduct(product: CartProduct): void {
     const savedProduct = this.cart.products.find(p => p.name === product.name);
 
@@ -63,7 +68,10 @@ export class CartService {
 
   private reportChangesInCartProducts() {
     const price = this.cart.products.map(x => x.price).reduce((a, b) => a + b, 0);
-    this.cart.price = price;
+
+    this.cart.price = 0;
+    this.cart.price += price;
+    this.cart.price += this.cart.deliveryCost;
 
     this.subject.next(this.cart);
   }

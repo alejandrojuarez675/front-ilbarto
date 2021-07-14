@@ -16,5 +16,6 @@ function formatCart(cart: Cart): string {
   return cart.products
     .map((p) => `${p.quantity} ${p.name}, `)
     .reduce((a, b) => a + b, INITIAL_MSG)
+    .concat(`. El delivery presupuestado es ${cart.deliveryCost}`)
     .concat(`.  El total presupuestado es ${cart.price}`);
 }
