@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cart, emptyCart } from '../../models/cart.model';
+import { Cart, emptyCart } from '../../../../shared/models/cart.model';
 
 @Component({
   selector: 'app-cart-view',
