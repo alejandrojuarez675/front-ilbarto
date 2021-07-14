@@ -4,7 +4,7 @@
       <h3>{{tag}}</h3>
     </div>
     <ng-container *ngFor="let product of productsByType[tag]">
-      <app-food-card [product]="product" class="col-md-6 col-xl-4"></app-food-card>
+      <app-food-card [product]="product"></app-food-card>
     </ng-container>
   </div>
 </div>

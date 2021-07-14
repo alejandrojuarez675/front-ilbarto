@@ -9,4 +9,6 @@
     </li>
   </ul>
   <h5>Total: {{cart.price | currency}}</h5>
+
+  <button class="btn btn-primary w-100" (click)="sendCart()" [disabled]="cart.price === 0">Enviar</button>
 </div>
