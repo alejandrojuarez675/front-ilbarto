@@ -1,5 +1,5 @@
 <div class="d-block d-md-none w-100 text-center shops-page__btn-cart-view">
-  <button class="btn btn-primary font-weight-bold" (click)="open(myCartList)">Ver mi Pedido {{cart.price | currency}}</button>
+  <button class="btn btn-primary font-weight-bold w-75" (click)="open(myCartList)">Ver mi Pedido {{cart.price | currency}}</button>
 </div>
 
 <ng-template #myCartList let-modal>
@@ -9,5 +9,5 @@
       <span aria-hidden="true">×</span>
     </button>
   </div>
-  <app-cart-view [cart]="cart"></app-cart-view>
+  <app-cart-view [cart]="cart" (sendCartEvent)="sendCart()"></app-cart-view>
 </ng-template>

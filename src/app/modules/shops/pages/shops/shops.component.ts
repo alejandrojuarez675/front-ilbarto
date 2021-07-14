@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ShopService } from 'src/app/core/http/shop.service';
 import { CartService } from 'src/app/core/services/cart.service';
+import { getUrlWsp } from 'src/app/core/utils/wsp-utils';
 import { Cart, emptyCart } from 'src/app/shared/models/cart.model';
 
 @Component({
@@ -42,6 +43,14 @@ export class ShopsComponent implements OnInit {
 
   redirectToNotFoundPage() {
     this.router.navigate(['/not-found']);
+  }
+
+  sendCart() {
+    console.log('send', this.cart);
+    if(confirm('Desea enviar el pedido a ' + this.shop.publicName + ' - total: $' + this.cart.price)) {
+      const urlWsp = getUrlWsp(this.shop.phone, this.cart);
+      window.location.href = urlWsp;
+    }
   }
 
 }

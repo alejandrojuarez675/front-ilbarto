@@ -6,10 +6,10 @@
         <div class="d-none d-md-block d-lg-none text-center mt-3">
           <button class="btn btn-primary foot-card__btn font-weight-bold col-12" (click)="addProduct()">+</button>
           <span class="foot-card__quantity-text col-12">&nbsp;{{quantity}}&nbsp;</span>
-          <button class="btn btn-primary foot-card__btn font-weight-bold col-12" (click)="removeProduct()">-</button>
+          <button class="btn btn-primary foot-card__btn font-weight-bold col-12" (click)="removeProduct()" [disabled]="quantity === 0">-</button>
         </div>
         <div class="d-none d-lg-block text-center mt-3">
-          <button class="btn btn-primary foot-card__btn font-weight-bold" (click)="removeProduct()">-</button>
+          <button class="btn btn-primary foot-card__btn font-weight-bold" (click)="removeProduct()" [disabled]="quantity === 0">-</button>
           <span class="foot-card__quantity-text">&nbsp;{{quantity}}&nbsp;</span>
           <button class="btn btn-primary foot-card__btn font-weight-bold" (click)="addProduct()">+</button>
         </div>
@@ -19,7 +19,7 @@
         <h6>Precio: {{product.price | currency}}</h6>
         <p class="card-text"><small>{{product.description}}</small></p>
         <div class="d-block d-md-none text-center">
-          <button class="btn btn-primary foot-card__btn font-weight-bold" (click)="removeProduct()">-</button>
+          <button class="btn btn-primary foot-card__btn font-weight-bold" (click)="removeProduct()" [disabled]="quantity === 0">-</button>
           <span class="foot-card__quantity-text">&nbsp;{{quantity}}&nbsp;</span>
           <button class="btn btn-primary foot-card__btn font-weight-bold" (click)="addProduct()">+</button>
         </div>

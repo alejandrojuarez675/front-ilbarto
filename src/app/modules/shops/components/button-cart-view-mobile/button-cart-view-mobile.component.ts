@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Cart, emptyCart } from 'src/app/shared/models/cart.model';
 
@@ -10,6 +10,8 @@ import { Cart, emptyCart } from 'src/app/shared/models/cart.model';
 export class ButtonCartViewMobileComponent implements OnInit {
 
   @Input() cart: Cart = emptyCart();
+  @Output() sendCartEvent = new EventEmitter<string>();
+
   closeResult: string = '';
 
   constructor(private modalService: NgbModal) {}
@@ -33,5 +35,10 @@ export class ButtonCartViewMobileComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  sendCart() {
+    this.sendCartEvent.emit('ok');
+    this.modalService.dismissAll('Send Cart');
   }
 }
