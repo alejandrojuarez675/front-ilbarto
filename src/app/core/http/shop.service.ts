@@ -19,7 +19,7 @@ export class ShopService {
     if(environment.mock) {
       return of(shopExample);
     } else {
-      return this.http.get(`${this.endpoint}/search?name=${name}`)
+      return this.http.get(`${this.endpoint}/${name}`)
     }
 
   }
