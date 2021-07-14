@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  mock: false,
+  endpointBaseApi: 'http://localhost:3000',
 };
