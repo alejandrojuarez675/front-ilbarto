@@ -1,10 +1,10 @@
-export interface Cart {
+export type Cart = {
   products: CartProduct[];
   deliveryCost: number;
   price: number;
 }
 
-export interface CartProduct {
+export type CartProduct = {
   name: string;
   image: string;
   description: string;

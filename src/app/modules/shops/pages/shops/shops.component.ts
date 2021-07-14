@@ -28,7 +28,7 @@ export class ShopsComponent implements OnInit {
       param => {
         if (!param.name) this.redirectToNotFoundPage();
         this.shopName = param.name;
-        this.shopService.getInfoByName(param.name).subscribe(
+        this.shopService.getByName(this.shopName).subscribe(
           shop => {
             this.shop = shop;
             this.cartService.cleanCart();

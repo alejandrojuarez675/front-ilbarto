@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { shopExample } from '../mocks/shop.mock';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Shop } from 'src/app/shared/models/shop.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ export class ShopService {
     private http: HttpClient
   ) { }
 
-  getInfoByName(name: string): Observable<any> {
+  getByName(name: string): Observable<Shop> {
     if(environment.mock) {
       return of(shopExample);
     } else {
-      return this.http.get(`${this.endpoint}/${name}`)
+      return this.http.get<Shop>(`${this.endpoint}/${name}`)
     }
 
   }

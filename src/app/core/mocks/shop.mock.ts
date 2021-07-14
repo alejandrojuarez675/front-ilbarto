@@ -1,4 +1,6 @@
-export const shopExample = {
+import { Shop } from "src/app/shared/models/shop.model";
+
+export const shopExample: Shop = {
   name: 'fabrica-de-pizzas',
   publicName: 'Fabrica de Pizzas',
   deliveryPrice: 60,
