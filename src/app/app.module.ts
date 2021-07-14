@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ShopsModule } from './modules/shops/shops.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ShopsHeaderModule } from './modules/shops-header/shops-header.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { ShopsHeaderModule } from './modules/shops-header/shops-header.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    ShopsHeaderModule,
     ShopsModule,
     NgbModule,
   ],
