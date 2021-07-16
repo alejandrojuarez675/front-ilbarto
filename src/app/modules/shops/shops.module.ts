@@ -6,8 +6,7 @@ import { FoodCardComponent } from './components/food-card/food-card.component';
 import { SectionsComponent } from './components/sections/sections.component';
 import { ButtonCartViewMobileComponent } from './components/button-cart-view-mobile/button-cart-view-mobile.component';
 import { CartViewComponent } from './components/cart-view/cart-view.component';
-
-
+import { ShopsRoutingModule } from './shops-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +17,7 @@ import { CartViewComponent } from './components/cart-view/cart-view.component';
     CartViewComponent,
   ],
   imports: [
+    ShopsRoutingModule,
     CommonModule,
     SharedModule,
   ]
