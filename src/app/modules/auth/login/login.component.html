@@ -1,3 +1,10 @@
-<button (click)="loginWithGoogle()" mat-raised-button class="google-login-btn">
-  Loguearse con Google
-</button>
+<div class="p-2">
+  <ng-container *ngIf="isSignedIn | async; else elseBlock">
+    <button type="button" (click)="logout()" class="btn btn-block btn-primary">Log Out</button>
+  </ng-container>
+</div>
+<div class="p-2">
+  <ng-template #elseBlock>
+    <button type="button" (click)="loginWithGoogle()" class="btn btn-block btn-primary">Signin with Google</button>
+  </ng-template>
+</div>

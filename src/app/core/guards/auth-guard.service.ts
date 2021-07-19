@@ -3,11 +3,10 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   Router,
-  RouterStateSnapshot,
+  RouterStateSnapshot
 } from '@angular/router';
-import { SocialAuthService, SocialUser } from 'angularx-social-login';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { AuthService } from '../interceptor/auth.service';
 
 @Injectable({
@@ -16,23 +15,17 @@ import { AuthService } from '../interceptor/auth.service';
 export class AuthGuardService implements CanActivate {
   constructor(
     private router: Router,
-    private socialAuthService: SocialAuthService,
     private authService: AuthService
   ) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot
   ): Observable<boolean> {
-    return this.socialAuthService.authState.pipe(
-      tap((socialUser: SocialUser) => {
-        this.authService.setUser(socialUser);
-        this.authService.setTokenId(socialUser.idToken);
-      }),
-      map((socialUser: SocialUser) => !!socialUser),
-      tap((isLoggedIn: boolean) => {
-        if (!isLoggedIn) {
-          this.router.navigate(['auth/login']); // TODO why this not work
+    return this.authService.isSignedIn().pipe(
+      tap((isSignedIn) => {
+        if (!isSignedIn) {
+          this.router.navigate(['auth/login']);
         }
       })
     );
